@@ -6,3 +6,4 @@ from .reading import Reading
 from .layout import Layout
 from .position import Position
 from .cardreading import Cardreading
+from .comment import Comment
