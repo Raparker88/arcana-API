@@ -4,3 +4,5 @@ from .tarotuser import Tarotuser
 from .subscription import Subscription
 from .reading import Reading
 from .layout import Layout
+from .position import Position
+from .cardreading import Cardreading
