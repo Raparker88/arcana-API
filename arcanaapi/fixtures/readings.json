@@ -3,7 +3,6 @@
         "model": "arcanaapi.reading",
         "pk": 1,
         "fields": {
-            "date_created": "2020-08-29T13:24:27.172Z",
             "tarotuser": 1,
             "name": "The devil is here!",
             "shared": true,

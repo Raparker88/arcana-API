@@ -4,8 +4,7 @@
         "pk": 1,
         "fields": {
             "user": 1,
-            "follower": 2,
-            "date_created": "2020-08-29T13:24:27.172Z"
+            "follower": 2
         }
     },
     {
@@ -13,8 +12,7 @@
         "pk": 2,
         "fields":{
             "user": 2,
-            "follower": 3,
-            "date_created": "2020-08-29T13:24:27.172Z"
+            "follower": 3
         }
     },
     {
@@ -22,8 +20,7 @@
         "pk": 3,
         "fields":{
             "user": 3,
-            "follower": 1,
-            "date_created": "2020-08-29T13:24:27.172Z"
+            "follower": 1
         }
     }
 ]

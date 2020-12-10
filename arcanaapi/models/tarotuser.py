@@ -8,4 +8,4 @@ class Tarotuser(models.Model):
     bio = models.CharField(max_length=500)
     profile_image = models.ImageField(upload_to="profileimages", height_field=None, width_field=None, max_length=None)
     astrology = models.ForeignKey("Sign", on_delete=models.CASCADE)
-    card_of_day = models.models.ForeignKey("Card", on_delete=models.CASCADE)
+    card_of_day = models.ForeignKey("Card", on_delete=models.CASCADE)
