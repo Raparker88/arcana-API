@@ -1,0 +1,12 @@
+[
+    {
+        "model": "arcanaapi.comment",
+        "pk": 1,
+        "fields": {
+            "reading": 1,
+            "tarotuser": 2,
+            "comment": "OMG you've got a handsome man in your future! but watch out he might not be as he seems!",
+            "date_created": "2020-08-29T13:24:27.172Z"
+        }
+    }
+]

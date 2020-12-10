@@ -1,0 +1,47 @@
+[
+    {
+        "model": "arcanaapi.position",
+        "pk": 1,
+        "fields": {
+            "name": "Past",
+            "layout": 1,
+            "explanation": "What has happened in the past to trigger the current situation"
+        }
+    },
+    {
+        "model": "arcanaapi.position",
+        "pk": 2,
+        "fields": {
+            "name": "Present",
+            "layout": 1,
+            "explanation": "The energy around a person or situation"
+        }
+    },
+    {
+        "model": "arcanaapi.position",
+        "pk": 3,
+        "fields": {
+            "name": "Future",
+            "layout": 1,
+            "explanation": "What is the most likely outcome if things keep going the way they are or what is being projected into the future"
+        }
+    },
+    {
+        "model": "arcanaapi.position",
+        "pk": 4,
+        "fields": {
+            "name": "The Known",
+            "layout": 1,
+            "explanation": "What is known, what is dominant, what the person is aware of or focusing on. What is the core reason for the circumstances"
+        }
+    },
+    {
+        "model": "arcanaapi.position",
+        "pk": 5,
+        "fields": {
+            "name": "The Unknown",
+            "layout": 1,
+            "explanation": "What is unknown, what is passive or subconscious, what is beneath the surface, what’s deep down. What is the potential of the situation."
+        }
+    }
+]

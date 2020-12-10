@@ -1,0 +1,53 @@
+[
+    {
+        "model": "arcanaapi.cardreading",
+        "pk": 1,
+        "fields": {
+            "reading": 1,
+            "card": 8,
+            "position": 1,
+            "inverted": false
+        }
+    },
+    {
+        "model": "arcanaapi.cardreading",
+        "pk": 2,
+        "fields": {
+            "reading": 1,
+            "card": 16,
+            "position": 2,
+            "inverted": false
+        }
+    },
+    {
+        "model": "arcanaapi.cardreading",
+        "pk": 3,
+        "fields": {
+            "reading": 1,
+            "card": 5,
+            "position": 3,
+            "inverted": true
+        }
+    },
+    {
+        "model": "arcanaapi.cardreading",
+        "pk": 4,
+        "fields": {
+            "reading": 1,
+            "card": 21,
+            "position": 4,
+            "inverted": false
+        }
+    },
+    {
+        "model": "arcanaapi.cardreading",
+        "pk": 5,
+        "fields": {
+            "reading": 1,
+            "card": 9,
+            "position": 5,
+            "inverted": false
+        }
+    }
+    
+]

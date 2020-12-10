@@ -1,0 +1,14 @@
+[
+    {
+        "model": "arcanaapi.reading",
+        "pk": 1,
+        "fields": {
+            "date_created": "2020-08-29T13:24:27.172Z",
+            "tarotuser": 1,
+            "name": "The devil is here!",
+            "shared": true,
+            "layout": 1,
+            "notes": "Some interesting things going on and I'm not quite sure what to make of it"
+        }
+    }
+]
