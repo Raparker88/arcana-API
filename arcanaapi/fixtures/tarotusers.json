@@ -1,0 +1,35 @@
+[
+    {
+        "model": "arcanaapi.tarotuser",
+        "pk": 1,
+        "fields": {
+            "bio": "Internationally acclaimed scuba instructor, radio dj personality, and mid-century modern sofa collector, Mary Mogul is often referred to as 'Awesome', 'Super Fantastic', and 'Great'. Her talk show 'Mary The Mogul' ran from 2019 to 2020 and made history by becoming the most 'wow' program of its kind ever to be aired, and the most 'woah' program of its kind ever to be cancelled. With a net worth of $3.1 gazillion, Forbey Parker ranked her at the top of their list of the world’s kajillionaires.",
+            "user": 1,
+            "profile_image": "",
+            "astrology": 1,
+            "card_of_day": 2
+        }
+    },
+    {
+        "model": "arcanaapi.tarotuser",
+        "pk": 2,
+        "fields": {
+            "bio": "World renowned book enthusiast, instantgram influencer, and ticktockticktockticktock kween Theo Daly began building her empire on the popular social media platform SnapCrackleChat in 2001. With a net worth of $8.1 bazillion, Forbey Parker ranked her somewhere in the middle of their list of the world’s kajillionaires.",
+            "user": 2,
+            "profile_image": "",
+            "astrology": 2,
+            "card_of_day": 20
+        }
+    },
+    {
+        "model": "arcanaapi.tarotuser",
+        "pk": 3,
+        "fields": {
+            "bio": "Mega superstar Erica Nobles became insanely famous and wealthy by accident after posting a really funny video on the social media app Vinyard, before the app was removed from existence a few years ago. With a net worth of $1.1 zillion, Forbey Parker ranked her somewhere at the bottom of their list of the world’s kajillionaires.",
+            "user": 3,
+            "profile_image": "",
+            "astrology": 3,
+            "card_of_day": 15
+        }
+    }
+]
