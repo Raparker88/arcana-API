@@ -9,7 +9,7 @@ from arcanaapi.views import Cards
 
 
 router = routers.DefaultRouter(trailing_slash=False)
-router.register(r'cards', Categories, 'category')
+router.register(r'cards', Cards, 'card')
 
 
 urlpatterns = [

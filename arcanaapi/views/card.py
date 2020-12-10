@@ -13,15 +13,16 @@ class Cards(ViewSet):
 
     def list(self, request):
         """Handles GET request for cards"""
-        cards = Card.objects.all()
+        cards = list(Card.objects.all())
+        shuffle(cards)
         
         serializer = CardSerializer(cards, many=True, context={'request': request})
         return Response(serializer.data)
 
 """Basic Serializer for cards"""
-class PostSerializer(serializers.ModelSerializer):
+class CardSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Card
-        fields = ('id', 'name', 'card_image', 'explanation', 'inverted_explanation')
+        fields = ('id', 'name', 'card_image', 'explanation', 'inverted_explanation', 'inverted')
         depth = 1

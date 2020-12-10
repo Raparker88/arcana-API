@@ -1,4 +1,5 @@
 from django.db import models
+import random
 
 
 class Card(models.Model):
@@ -7,5 +8,19 @@ class Card(models.Model):
     explanation = models.CharField(max_length=1000)
     inverted_explanation = models.CharField(max_length=1000)
 
+    @property
+    def inverted(self):
+        """determines if the card is inverted or not
+
+        Returns:
+            boolean
+        """
+        num = random.randint(1,4)
+
+        if num == 1:
+            return True
+        else:
+            return False
+        
    
     
