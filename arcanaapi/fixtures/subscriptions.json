@@ -1,0 +1,26 @@
+[
+    {
+        "model": "arcanaapi.subscription",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "follower": 2
+        }
+    },
+    {
+        "model": "arcanaapi.subscription",
+        "pk": 2,
+        "fields":{
+            "user": 2,
+            "follower": 3
+        }
+    },
+    {
+        "model": "arcanaapi.subscription",
+        "pk": 3,
+        "fields":{
+            "user": 3,
+            "follower": 1
+        }
+    }
+]

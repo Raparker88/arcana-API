@@ -1,0 +1,87 @@
+[
+    {
+        "model": "arcanaapi.sign",
+        "pk": 1,
+        "fields": {
+            "name": "Aquarius"
+        }
+    },
+    {
+        "model": "arcanaapi.sign",
+        "pk": 2,
+        "fields": {
+            "name": "Pisces"
+        }
+    },
+    {
+        "model": "arcanaapi.sign",
+        "pk": 3,
+        "fields": {
+            "name": "Aries"
+        }
+    },
+    {
+        "model": "arcanaapi.sign",
+        "pk": 4,
+        "fields": {
+            "name": "Taurus"
+        }
+    },
+    {
+        "model": "arcanaapi.sign",
+        "pk": 5,
+        "fields": {
+            "name": "Gemini"
+        }
+    },
+    {
+        "model": "arcanaapi.sign",
+        "pk": 6,
+        "fields": {
+            "name": "Cancer"
+        }
+    },
+    {
+        "model": "arcanaapi.sign",
+        "pk": 7,
+        "fields": {
+            "name": "Leo"
+        }
+    },
+    {
+        "model": "arcanaapi.sign",
+        "pk": 8,
+        "fields": {
+            "name": "Virgo"
+        }
+    },
+    {
+        "model": "arcanaapi.sign",
+        "pk": 9,
+        "fields": {
+            "name": "Libra"
+        }
+    },
+    {
+        "model": "arcanaapi.sign",
+        "pk": 10,
+        "fields": {
+            "name": "Scorpio"
+        }
+    },
+    {
+        "model": "arcanaapi.sign",
+        "pk": 11,
+        "fields": {
+            "name": "Sagittarius"
+        }
+    },
+    {
+        "model": "arcanaapi.sign",
+        "pk": 12,
+        "fields": {
+            "name": "Capricorn"
+        }
+    }
+]
+    

@@ -1,0 +1,13 @@
+[
+    {
+        "model": "arcanaapi.reading",
+        "pk": 1,
+        "fields": {
+            "tarotuser": 1,
+            "name": "The devil is here!",
+            "shared": true,
+            "layout": 1,
+            "notes": "Some interesting things going on and I'm not quite sure what to make of it"
+        }
+    }
+]

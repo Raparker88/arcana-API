@@ -1,0 +1,10 @@
+[
+    {
+        "model": "arcanaapi.layout",
+        "pk": 1,
+        "fields": {
+            "name": "Five Card Cross",
+            "explanation": "This is useful when trying to decide a given course of action. Card 4 will often reveal a subconscious impulse - perhaps a blockage which is stopping you from achieving your desired result. Card 5 shows the possible results from taking a given course of action. The spread works best if, whilst selecting the cards, you concentrate on one aspect of the decision, rather than either/or type questions."
+        }
+    }
+]

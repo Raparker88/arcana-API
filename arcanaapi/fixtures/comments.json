@@ -1,0 +1,11 @@
+[
+    {
+        "model": "arcanaapi.comment",
+        "pk": 1,
+        "fields": {
+            "reading": 1,
+            "tarotuser": 2,
+            "comment": "OMG you've got a handsome man in your future! but watch out he might not be as he seems!"
+        }
+    }
+]
