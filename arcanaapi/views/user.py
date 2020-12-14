@@ -8,6 +8,7 @@ from rest_framework import status
 from django.contrib.auth.models import User
 from arcanaapi.models import Tarotuser, Sign
 from rest_framework.decorators import action
+from django.db.models import Q
 
 
 class Users(ViewSet):
@@ -18,6 +19,19 @@ class Users(ViewSet):
             Response -- JSON serialized list of users
         """
         tarotusers = Tarotuser.objects.all()
+
+        #support query param to search by username 
+        name = self.request.query_params.get('name', None)
+
+        if name is not None:
+            tarotusers = []
+            users = User.objects.filter(Q(username__contains = name) | Q(first_name__contains = name) | 
+            Q(last_name__contains = name))
+            
+            for user in users:
+                tarotuser = Tarotuser.objects.get(pk = user.id)
+                tarotusers.append(tarotuser)
+
         serializer = TarotUserSerializer(
             tarotusers, many=True, context={'request': request})
         return Response(serializer.data)
