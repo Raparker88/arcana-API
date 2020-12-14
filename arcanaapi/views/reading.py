@@ -73,26 +73,26 @@ class Readings(ViewSet):
         reading.notes = request.data["notes"]
         reading.name = request.data["name"]
 
-        try:
-            reading.save()
-            serializer = ReadingSerializer(reading, context={'request': request})
+        
+        reading.save()
+        serializer = ReadingSerializer(reading, context={'request': request})
 
-            #iterate cards layed out for this reading and save relationships to database
-            cards = request.data["cards"]
-            for cardObj in cards:
+        #iterate cards layed out for this reading and save relationships to database
+        cards = request.data["cards"]
+        for cardObj in cards:
 
-                position = Position.objects.get(pk = int(cardObj["position_id"]))
-                card = Card.objects.get(pk = int(cardObj["card_id"]))
-                cardreading = Cardreading()
-                cardreading.card = card
-                cardreading.reading = reading
-                cardreading.position = position
-                cardreading.inverted = cardObj["inverted"]
-                cardreading.save()
+            position = Position.objects.get(pk = int(cardObj["position_id"]))
+            card = Card.objects.get(pk = int(cardObj["card_id"]))
+            cardreading = Cardreading()
+            cardreading.card = card
+            cardreading.reading = reading
+            cardreading.position = position
+            cardreading.inverted = cardObj["inverted"]
+            cardreading.save()
 
-            return Response(serializer.data)
-        except ValidationError as ex:
-            return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.data)
+        
+        
 
 class CardSerializer(serializers.ModelSerializer):
     
