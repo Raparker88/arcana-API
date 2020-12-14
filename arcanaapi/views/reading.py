@@ -6,7 +6,8 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
-from arcanaapi.models import Reading, Tarotuser, Cardreading, Position
+from arcanaapi.models import Reading, Tarotuser, Cardreading, Position, Card, Layout
+
 
 class Readings(ViewSet):
 
@@ -78,22 +79,32 @@ class Readings(ViewSet):
 
             #iterate cards layed out for this reading and save relationships to database
             cards = request.data["cards"]
-            for card in cards:
+            for cardObj in cards:
 
-                position = Position.objects.get(pk = card["position_id"])
+                position = Position.objects.get(pk = int(cardObj["position_id"]))
+                card = Card.objects.get(pk = int(cardObj["card_id"]))
                 cardreading = Cardreading()
                 cardreading.card = card
                 cardreading.reading = reading
-                cardreading.postion = position
-                cardreading.inverted = card["inverted"]
+                cardreading.position = position
+                cardreading.inverted = cardObj["inverted"]
                 cardreading.save()
 
             return Response(serializer.data)
         except ValidationError as ex:
             return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
 
+class CardSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Card
+
+        fields = ('name', 'card_image', 'explanation', 'inverted_explanation')
+
 class CardReadingSerializer(serializers.HyperlinkedModelSerializer):
     """JSON serializer for cards in a reading"""
+
+    card = CardSerializer(many=False)
 
     class Meta:
         model = Cardreading
@@ -101,7 +112,7 @@ class CardReadingSerializer(serializers.HyperlinkedModelSerializer):
             view_name='card',
             lookup_field='id'
         )
-        fields = ('id', 'card_id', 'position_id', 'inverted')
+        fields = ('id', 'card', 'position_id', 'inverted')
 
 class ReadingSerializer(serializers.HyperlinkedModelSerializer):
     """JSON serializer for readings"""
