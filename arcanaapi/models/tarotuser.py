@@ -9,3 +9,12 @@ class Tarotuser(models.Model):
     profile_image = models.ImageField(upload_to="profileimages", height_field=None, width_field=None, max_length=None)
     astrology = models.ForeignKey("Sign", on_delete=models.CASCADE)
     card_of_day = models.ForeignKey("Card", on_delete=models.CASCADE)
+
+    """This makes the username property accessible directly from the User table"""
+    @property
+    def username(self):
+        return self.user.username
+
+    @property
+    def full_name(self):
+        return (f'{self.user.first_name} {self.user.last_name}')
