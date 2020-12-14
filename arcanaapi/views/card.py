@@ -1,3 +1,5 @@
+"""view module for handling requests about cards"""
+
 from django.http.response import HttpResponseServerError
 from django.core.exceptions import ValidationError
 import random
