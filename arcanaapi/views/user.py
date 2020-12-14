@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
 from django.contrib.auth.models import User
-from arcanaapi.models import Tarotuser
+from arcanaapi.models import Tarotuser, Sign
 from rest_framework.decorators import action
 
 
@@ -74,10 +74,18 @@ class Users(ViewSet):
 
         return Response(serializer.data)
 
+class SignSerializer(serializers.ModelSerializer):
+    """JSON serializer for astrological sign"""
 
+    class Meta:
+        model = Sign
+        fields = ("name",)
 
 class TarotUserSerializer(serializers.ModelSerializer):
     """JSON serializer for Tarotuser info in profile detail view"""
+
+    astrology = SignSerializer(many=False)
+
     class Meta:
         model = Tarotuser
-        fields = ("id", "bio",  "full_name", "profile_image", "username")
+        fields = ("id", "bio",  "full_name", "profile_image", "username", "astrology")
