@@ -220,4 +220,4 @@ class TarotUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tarotuser
         fields = ("id", "bio",  "full_name", "profile_image", "username", 
-        "astrology", "subscribed", "card_of_day")
+        "astrology", "subscribed", "card_of_day", "card_of_day_inverted")
