@@ -18,3 +18,11 @@ class Tarotuser(models.Model):
     @property
     def full_name(self):
         return (f'{self.user.first_name} {self.user.last_name}')
+
+    @property
+    def subscribed(self):
+        return self.__subscribed
+
+    @subscribed.setter
+    def subscribed(self, value):
+        self.__subscribed = value
