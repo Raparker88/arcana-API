@@ -174,6 +174,6 @@ class ReadingSerializer(serializers.HyperlinkedModelSerializer):
             view_name='reading',
             lookup_field='id'
         )
-        fields = ('id', 'tarotuser_id', 'date_created', 'name', 'notes', 'layout_id',
+        fields = ('id', 'tarotuser_id', 'date_created', 'name', 'notes', 'layout_id', 'comment_count',
         'shared', 'cardreadings')
         depth = 1

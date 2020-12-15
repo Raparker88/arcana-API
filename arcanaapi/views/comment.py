@@ -16,7 +16,7 @@ class Comments(ViewSet):
         """Handle GET operations for comments"""
 
 
-        # Support filtering by user
+        # Support filtering by reading
         reading = self.request.query_params.get('reading', None)
         
         comments = Comment.objects.filter(reading__id = reading)
