@@ -1,6 +1,6 @@
 """View module for handling authentication and new user registration"""
 import json
-# import datetime
+from django.utils import timezone
 # import uuid
 # import base64
 import random
@@ -58,7 +58,8 @@ def register_user(request):
         first_name=req_body['first_name'],
         last_name=req_body['last_name'],
         is_active=True,
-        is_staff=False
+        is_staff=False,
+        last_login= timezone.now()
     )
     # format, imgstr = req_body["profile_image_url"].split(';base64,')
     # ext = format.split('/')[-1]
@@ -70,6 +71,7 @@ def register_user(request):
     random_id = random.randint(1,22)
     card_of_day = cards[random_id]
 
+
     tarotuser = Tarotuser.objects.create(
         bio=req_body['bio'],
         user=new_user,
@@ -77,6 +79,13 @@ def register_user(request):
         sign = sign,
         card_of_day = card_of_day
     )
+    
+    #determine if card of day is inverted
+    num = random.randint(1,4)
+    if num == 1:
+        tarotuser.card_of_day_inverted = True
+    else:
+        tarotuser.card_of_day_inverted = False
 
     # save it all to the db
     tarotuser.save()
