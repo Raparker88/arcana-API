@@ -4,7 +4,7 @@
         "pk": 1,
         "fields": {
             "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
-            "last_login": null,
+            "last_login": "2020-12-14T14:24:04.226418-06:00",
             "is_superuser": false,
             "username": "marymogul",
             "first_name": "Mary",
@@ -22,7 +22,7 @@
         "pk": 2,
         "fields": {
             "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I1",
-            "last_login": null,
+            "last_login": "2020-12-14T14:24:04.226418-06:00",
             "is_superuser": false,
             "username": "theocanread",
             "first_name": "Theo",
@@ -40,7 +40,7 @@
         "pk": 3,
         "fields": {
             "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7vkdowna;453687sd",
-            "last_login": null,
+            "last_login": "2020-12-14T14:24:04.226418-06:00",
             "is_superuser": false,
             "username": "taternoodles",
             "first_name": "Erica",

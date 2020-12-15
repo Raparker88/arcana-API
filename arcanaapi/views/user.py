@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
 from django.contrib.auth.models import User
-from arcanaapi.models import Tarotuser, Sign, Subscription, Reading
+from arcanaapi.models import Tarotuser, Sign, Subscription, Reading, Card
 from rest_framework.decorators import action
 from django.db.models import Q
 from .reading import ReadingSerializer
@@ -110,7 +110,7 @@ class Users(ViewSet):
 
         tarotuser = Tarotuser.objects.get(user=request.auth.user)
         
-        serializer = TarotUserSerializer(current_user, context={'request': request})
+        serializer = TarotUserSerializer(tarotuser, context={'request': request})
 
         return Response(serializer.data)
 
@@ -197,6 +197,13 @@ class Users(ViewSet):
         #if the client performs a request other than GET
         return Response({}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
+class CardSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Card
+        fields = ('id', 'name', 'card_image', 'explanation', 'inverted_explanation')
+        depth = 1
+
 class SignSerializer(serializers.ModelSerializer):
     """JSON serializer for astrological sign"""
 
@@ -208,7 +215,9 @@ class TarotUserSerializer(serializers.ModelSerializer):
     """JSON serializer for Tarotuser info in profile detail view"""
 
     astrology = SignSerializer(many=False)
+    card_of_day = CardSerializer(many=False)
 
     class Meta:
         model = Tarotuser
-        fields = ("id", "bio",  "full_name", "profile_image", "username", "astrology", "subscribed")
+        fields = ("id", "bio",  "full_name", "profile_image", "username", 
+        "astrology", "subscribed", "card_of_day")
