@@ -93,6 +93,21 @@ class Readings(ViewSet):
 
         return Response(serializer.data)
 
+    def patch(self, request, pk=None):
+        """Handle patch requests to a users reading"""
+
+        reading = Reading.objects.get(pk = pk)
+
+        reading.notes = request.data['notes']
+        reading.name = request.data['name']
+
+        reading.save()
+
+        serializer = ReadingSerializer(reading, context={'request': request})
+        
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
     @action(methods=['put'], detail=True)
     def share(self, request, pk=None):
         """Managing users sharing and unsharing a reading"""
@@ -144,6 +159,6 @@ class ReadingSerializer(serializers.HyperlinkedModelSerializer):
             view_name='reading',
             lookup_field='id'
         )
-        fields = ('id', 'tarotuser_id', 'date_created', 'name', 'layout_id',
+        fields = ('id', 'tarotuser_id', 'date_created', 'name', 'notes', 'layout_id',
         'shared', 'cardreadings')
         depth = 1
