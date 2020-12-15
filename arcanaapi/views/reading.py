@@ -6,6 +6,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
+from rest_framework.decorators import action
 from arcanaapi.models import Reading, Tarotuser, Cardreading, Position, Card, Layout
 
 
@@ -91,6 +92,24 @@ class Readings(ViewSet):
             cardreading.save()
 
         return Response(serializer.data)
+
+    @action(methods=['put'], detail=True)
+    def share(self, request, pk=None):
+        """Managing users sharing and unsharing a reading"""
+
+        if request.method == "PUT":
+            reading = Reading.objects.get(pk=pk)
+
+            reading.shared = not reading.shared
+            reading.save()
+
+            return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+           
+        
+        return Response({}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
         
         
 

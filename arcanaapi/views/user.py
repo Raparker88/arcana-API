@@ -184,7 +184,7 @@ class Users(ViewSet):
             subscribed_readings=[]
             for subscription in subscriptions:
                 tarotuser = Tarotuser.objects.get(pk = subscription.user_id)
-                readings = Reading.objects.filter(tarotuser = tarotuser)
+                readings = Reading.objects.filter(tarotuser = tarotuser, shared=True)
                 for reading in readings:
                     subscribed_readings.append(reading)
                 
