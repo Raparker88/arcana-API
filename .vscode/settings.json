@@ -5,36 +5,6 @@
             "driver": "SQLite",
             "name": "arcana",
             "database": "${workspaceFolder:arcana}/db.sqlite3"
-        },
-        {
-            "previewLimit": 50,
-            "driver": "SQLite",
-            "name": "arcana",
-            "database": "db.sqlite3"
-        },
-        {
-            "previewLimit": 50,
-            "driver": "SQLite",
-            "name": "arcana",
-            "database": "db.sqlite3"
-        },
-        {
-            "previewLimit": 50,
-            "driver": "SQLite",
-            "name": "arcana",
-            "database": "db.sqlite3"
-        },
-        {
-            "previewLimit": 50,
-            "driver": "SQLite",
-            "name": "arcana",
-            "database": "db.sqlite3"
-        },
-        {
-            "previewLimit": 50,
-            "driver": "SQLite",
-            "name": "arcana",
-            "database": "db.sqlite3"
         }
     ]
 }
