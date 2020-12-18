@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers
 from arcanaapi.views import register_user, login_user
-from arcanaapi.views import Cards, Readings, Comments, Users, Signs
+from arcanaapi.views import Cards, Readings, Comments, Users, Signs, Positions
 
 
 
@@ -14,6 +14,7 @@ router.register(r'readings', Readings, 'reading')
 router.register(r'comments', Comments, 'comments')
 router.register(r'users', Users, 'users')
 router.register(r'signs', Signs, 'sign')
+router.register(r'positions', Positions, 'position')
 
 
 urlpatterns = [
