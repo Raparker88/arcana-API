@@ -56,7 +56,7 @@ class Readings(ViewSet):
                 notes: ""
                 cards: [
                     {
-                        card_id: int,
+                        id: int,
                         inverted: bool,
                         position_id
                     }
@@ -83,7 +83,7 @@ class Readings(ViewSet):
         for cardObj in cards:
 
             position = Position.objects.get(pk = int(cardObj["position_id"]))
-            card = Card.objects.get(pk = int(cardObj["card_id"]))
+            card = Card.objects.get(pk = int(cardObj["id"]))
             cardreading = Cardreading()
             cardreading.card = card
             cardreading.reading = reading
