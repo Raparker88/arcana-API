@@ -5,3 +5,4 @@ from .reading import Readings
 from .comment import Comments
 from .user import Users
 from .sign import Signs
+from .position import Positions
