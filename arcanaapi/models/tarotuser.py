@@ -33,6 +33,7 @@ class Tarotuser(models.Model):
     @subscribed.setter
     def subscribed(self, value):
         self.__subscribed = value
+        
 
 @receiver(user_logged_in, sender=User)
 def my_handler(sender, instance, **kwargs):

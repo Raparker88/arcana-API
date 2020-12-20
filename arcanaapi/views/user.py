@@ -10,6 +10,9 @@ from arcanaapi.models import Tarotuser, Sign, Subscription, Reading, Card
 from rest_framework.decorators import action
 from django.db.models import Q
 from .reading import ReadingSerializer
+import uuid
+import base64
+from django.core.files.base import ContentFile
 
 
 class Users(ViewSet):
@@ -80,10 +83,10 @@ class Users(ViewSet):
                 {'message': 'User does not exist.'},
                 status=status.HTTP_400_BAD_REQUEST)
 
-    def patch(self, request, pk=None):
+    def patch(self, request):
         """Handle PUT and PATCH requests for user details"""
 
-        tarotuser = Tarotuser.objects.get(pk = pk)
+        tarotuser = Tarotuser.objects.get(user=request.auth.user)
 
         if "profile_image" in request.data:
 
