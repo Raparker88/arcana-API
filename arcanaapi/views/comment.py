@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
 from arcanaapi.models import Reading, Tarotuser, Comment
+from .user import TarotUserSerializer
 
 
 class Comments(ViewSet):
@@ -66,13 +67,25 @@ class Comments(ViewSet):
         except Exception as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
        
+class TarotUserSerializer(serializers.ModelSerializer):
+    """JSON serializer for tarotusers related to comments"""
+    
+
+    class Meta:
+        model = Tarotuser
+       
+        fields = ('id', 'username')
+        
 
 class CommentSerializer(serializers.ModelSerializer):
     """JSON serializer for comments"""
-
+    
+    tarotuser = TarotUserSerializer(many=False)
 
     class Meta:
         model = Comment
        
-        fields = ('id', 'tarotuser_id', 'date_created', 'reading_id', 'comment')
+        fields = ('id', 'tarotuser', 'tarotuser_id', 'date_created', 'reading_id', 'comment')
+        depth = 1
+        
       
