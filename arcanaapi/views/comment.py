@@ -52,6 +52,25 @@ class Comments(ViewSet):
 
         return Response(serializer.data)
 
+    def update(self, request, pk=None):
+        """Handle PUT requests for a comment
+
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+        tarotuser = Tarotuser.objects.get(user=request.auth.user)
+        reading = Reading.objects.get(pk=request.data["reading_id"])
+
+        comment = Comment.objects.get(pk=pk)
+        comment.reading = reading
+        comment.tarotuser = tarotuser
+        comment.date_created = request.data["date_created"]
+        comment.comment = request.data["comment"]
+        
+        comment.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
     def destroy(self, request, pk=None):
         """Handle DELETE requests for a single commment"""
 
