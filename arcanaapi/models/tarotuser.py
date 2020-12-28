@@ -16,6 +16,8 @@ class Tarotuser(models.Model):
     astrology = models.ForeignKey("Sign", on_delete=models.CASCADE)
     card_of_day = models.ForeignKey("Card", on_delete=models.CASCADE, related_name = "card_of_day")
     card_of_day_inverted = models.BooleanField()
+    last_login = models.DateTimeField(default=timezone.now)
+
 
     """This makes the username property accessible directly from the User table"""
     @property
@@ -37,9 +39,10 @@ class Tarotuser(models.Model):
 
 @receiver(user_logged_in, sender=User)
 def my_handler(sender, instance, **kwargs):
-    if instance.last_login.date() != timezone.now().date():
+    tarotuser = Tarotuser.objects.get(user=instance)
+    
+    if instance.last_login.date() != tarotuser.last_login.date():
         #change card_of_day value on tarotuser
-        tarotuser = Tarotuser.objects.get(user=instance)
 
         #use random integer to pick a random card
         cards = Card.objects.all()
@@ -54,6 +57,8 @@ def my_handler(sender, instance, **kwargs):
             tarotuser.card_of_day_inverted = True
         else:
             tarotuser.card_of_day_inverted = False
+        
+        tarotuser.last_login = instance.last_login
         tarotuser.save()
 
-    instance.last_login = timezone.now()
+    
