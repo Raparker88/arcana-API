@@ -1,10 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils import timezone
-from .card import Card
-import random
-from django.contrib.auth.signals import user_logged_in 
-from django.dispatch import receiver
 
 
 
@@ -16,7 +11,6 @@ class Tarotuser(models.Model):
     astrology = models.ForeignKey("Sign", on_delete=models.CASCADE)
     card_of_day = models.ForeignKey("Card", on_delete=models.CASCADE, related_name = "card_of_day")
     card_of_day_inverted = models.BooleanField()
-    last_login = models.DateTimeField(default=timezone.now)
 
 
     """This makes the username property accessible directly from the User table"""
@@ -37,28 +31,6 @@ class Tarotuser(models.Model):
         self.__subscribed = value
         
 
-@receiver(user_logged_in, sender=User)
-def my_handler(sender, instance, **kwargs):
-    tarotuser = Tarotuser.objects.get(user=instance)
-    
-    if instance.last_login.date() != tarotuser.last_login.date():
-        #change card_of_day value on tarotuser
 
-        #use random integer to pick a random card
-        cards = Card.objects.all()
-        random_id = random.randint(1,22)
-        card_of_day = cards[random_id]
-        tarotuser.card_of_day = card_of_day
-
-        #determine if card of day is inverted
-        num = random.randint(1,4)
-
-        if num == 1:
-            tarotuser.card_of_day_inverted = True
-        else:
-            tarotuser.card_of_day_inverted = False
-        
-        tarotuser.last_login = instance.last_login
-        tarotuser.save()
 
     

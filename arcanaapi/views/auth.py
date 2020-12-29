@@ -1,8 +1,6 @@
 """View module for handling authentication and new user registration"""
 import json
 from django.utils import timezone
-# import uuid
-# import base64
 import random
 from django.http import HttpResponse
 from django.contrib.auth import authenticate
@@ -12,6 +10,7 @@ from django.core.files.base import ContentFile
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from arcanaapi.models import Tarotuser, Sign, Card
+from django.contrib.auth.models import update_last_login
 
 @csrf_exempt
 def login_user(request):
@@ -31,6 +30,28 @@ def login_user(request):
 
         # If authentication was successful, respond with true and the users token
         if authenticated_user is not None:
+            tarotuser = Tarotuser.objects.get(user=authenticated_user)
+
+            if authenticated_user.last_login.date() != timezone.now().date():
+                #change card_of_day value on tarotuser
+
+                #use random integer to pick a random card
+                cards = Card.objects.all()
+                random_id = random.randint(1,22)
+                card_of_day = cards[random_id]
+                tarotuser.card_of_day = card_of_day
+
+                #determine if card of day is inverted
+                num = random.randint(1,4)
+
+                if num == 1:
+                    tarotuser.card_of_day_inverted = True
+                else:
+                    tarotuser.card_of_day_inverted = False
+                
+                tarotuser.save()
+                
+            update_last_login(None, authenticated_user)
             token = Token.objects.get(user=authenticated_user)
             data = json.dumps({"valid": True, "token": token.key})
             return HttpResponse(data, content_type='application/json')
